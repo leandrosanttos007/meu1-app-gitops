@@ -22,7 +22,7 @@ jobs:
     - name: Build and Push
       run: |
         docker build -t leohurin/meu-app:${{ github.sha }} .
-        docker push leandrosanttos/meu-app:${{ github.sha }}
+        docker push leohurin/meu-app:${{ github.sha }}
 
     - name: Update image in k8s
       run: |
