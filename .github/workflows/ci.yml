@@ -21,12 +21,12 @@ jobs:
 
     - name: Build and Push
       run: |
-        docker build -t leandrosanttos/meu-app:${{ github.sha }} .
+        docker build -t leohurin/meu-app:${{ github.sha }} .
         docker push leandrosanttos/meu-app:${{ github.sha }}
 
     - name: Update image in k8s
       run: |
-        sed -i "s|image: .*|image: leandrosanttos/meu-app:${{ github.sha }}|" k8s/rollout.yaml
+        sed -i "s|image: .*|image: leohurin/meu-app:${{ github.sha }}|" k8s/rollout.yaml
         git config user.name "github-actions"
         git config user.email "actions@github.com"
         git commit -am "update image"
